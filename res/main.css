@@ -1,0 +1,182 @@
+/* Layout */
+body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 960px) minmax(0, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas:
+    " ... hdr ... "
+    " ... bio ... "
+    " ... soc ... "
+    " ... crl ... "
+    " ... map ... "
+    " ... vid ... "
+    " ... bus ... "
+    " ... str ... "
+    " ... lst ... "
+    " ... cnt ... ";
+
+}
+
+header {
+    grid-area: hdr;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3fr;
+    grid-template-areas:
+    " logo  "
+    " title "
+    " intro "
+    " voa   ";
+}
+
+header img {
+    grid-area: logo;
+    margin: auto;
+    width: 30vw;
+}
+
+header h1 {
+    grid-area: title;
+    margin: auto;
+}
+
+header h3 {
+    grid-area: intro;
+    margin: auto;
+}
+
+header h2 {
+    grid-area: voa;
+    margin: auto;
+}
+
+#bio {
+    grid-area: bio;
+    margin: auto;
+}
+
+#social {
+    grid-area: soc;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+    " yt  .  sf"
+    " .  tb  . "
+    " pc  .  of";
+    justify-items: center;
+}
+
+#social a:nth-of-type(1) {
+    grid-area: yt;
+    margin: auto;
+}
+
+
+#social a:nth-of-type(2) {
+    grid-area: sf;
+    margin: auto;
+}
+
+
+#social a:nth-of-type(3) {
+    grid-area: tb;
+    margin: auto;
+    width: 5em;
+}
+
+#social a:nth-of-type(4) {
+    grid-area: pc;
+    margin: auto;
+}
+
+#social a:nth-of-type(5) {
+    grid-area: of;
+    margin: auto;
+}
+
+#carousel {
+    grid-area: crl;
+    margin: auto;
+
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+    grid-template-areas:
+    " tag  "
+    " sldr ";
+}
+
+#carousel h2 {
+    grid-area: tag;
+    margin: auto;
+}
+
+#carousel div {
+    grid-area: sldr;
+    margin: auto;
+}
+
+#map {
+    grid-area: map;
+    margin: auto;
+}
+
+#video {
+    grid-area: vid;
+    margin: auto;
+
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+    grid-template-areas:
+    " tl "
+    " vd ";
+}
+
+#video h2 {
+    grid-area: tl;
+    margin: auto;
+}
+
+#video iframe {
+    grid-area: vd;
+    margin: auto;
+}
+
+#bus {
+    grid-area: bus;
+    margin: auto;
+
+    display: grid;
+}
+
+#bus h2 {
+    margin: auto;
+}
+
+#store {
+    grid-area: str;
+    margin: auto;
+}
+
+#mailList {
+    grid-area: lst;
+    margin: auto;
+}
+
+#contact {
+    grid-area: cnt;
+    margin: auto;
+}
+
+/* Styles */
+
+.icon {
+    width: 3em;
+}
+
+.clip-circle {
+     /* clip-path: circle(100% at center);*/
+    border-radius: 100px;
+    
+}
