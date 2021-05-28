@@ -1,39 +1,57 @@
-/* Layout */
 body {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 960px) minmax(0, 1fr);
-  grid-template-rows: auto;
-  grid-template-areas:
-    " ... hdr ... "
+    /* Presentation*/
+    font-family: helvetica neue, arial, helvetica, freesans, liberation sans, numbus sans l, sans-serif;
+    color: #42382e;
+
+    /* Layout */
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 960px) minmax(0, 1fr);
+    grid-template-rows: min-content;
+    grid-template-areas:
+    " hdr hdr hdr "
     " ... bio ... "
     " ... soc ... "
     " ... crl ... "
-    " ... map ... "
     " ... vid ... "
     " ... bus ... "
     " ... str ... "
     " ... lst ... "
     " ... cnt ... ";
 
+    grid-gap: 6em;
 }
 
 header {
     grid-area: hdr;
     margin: auto;
+/*    background: url("images/milkyway.jpeg"); */
+    height: 40vh;
+
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 3fr;
+    grid-template-rows: auto;
     grid-template-areas:
     " logo  "
     " title "
     " intro "
-    " voa   ";
+    "  voa  ";
 }
 
-header img {
+header * {
+    line-height: 0px;
+}
+
+header svg {
     grid-area: logo;
+
     margin: auto;
-    width: 30vw;
+    width: 10vw;
+}
+
+header svg path, circle {
+   fill: #42382e;
+   stroke: #ffffff;
+   stroke-width: .3;
 }
 
 header h1 {
@@ -46,10 +64,33 @@ header h3 {
     margin: auto;
 }
 
-header h2 {
+header h1, h2, h3 {
+    text-shadow: -0.25px 0 #ffffff, 0 0.25px #ffffff, 0.25px 0 #ffffff, 0 -0.25px #ffffff;
+}
+
+header div:nth-of-type(1) {
     grid-area: voa;
     margin: auto;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+    "icn"
+    "ttl";
 }
+
+#voices svg {
+    grid-area: icn;
+    margin: auto;
+    width: 2.5em;
+}
+
+#voices h2 {
+    grid-area: ttl;
+    margin: auto;
+}
+
 
 #bio {
     grid-area: bio;
@@ -101,12 +142,21 @@ header h2 {
     margin: auto;
 
     display: grid;
-    grid-template-rows: 1fr 4fr;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: min-content;
     grid-template-areas:
-    " tag  "
-    " sldr ";
+    " tag map sldr ";
+    grid-gap: 2em;
+    align-items: center;
 }
 
+#carousel h2 {
+    font-size: 2em;
+    transform: rotateY(45deg);
+}
+
+
+/*
 #carousel h2 {
     grid-area: tag;
     margin: auto;
@@ -114,6 +164,12 @@ header h2 {
 
 #carousel div {
     grid-area: sldr;
+    height: 7em;
+    width: 500px;
+    margin: auto;
+}
+
+#carousel div div {
     margin: auto;
 }
 
@@ -122,25 +178,30 @@ header h2 {
     margin: auto;
 }
 
+*/
+
 #video {
     grid-area: vid;
     margin: auto;
+    width: 100%;
 
     display: grid;
-    grid-template-rows: 1fr 4fr;
+    grid-template-rows: 4fr 1fr;
     grid-template-areas:
-    " tl "
-    " vd ";
+    " vd tl ";
+    grid-gap: 5em;
 }
 
 #video h2 {
     grid-area: tl;
     margin: auto;
+    justify-self: end;
 }
 
 #video iframe {
     grid-area: vd;
     margin: auto;
+    justify-self: start;
 }
 
 #bus {
@@ -179,4 +240,34 @@ header h2 {
      /* clip-path: circle(100% at center);*/
     border-radius: 100px;
     
+}
+
+.chunky p {
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+    font-size: 1.5em;
+    line-height: 98%;
+}
+
+
+@supports (-webkit-background-clip: text) {
+    .text-mask {
+	-webkit-background-clip: text;
+    }
+
+
+    /* To-do: Apply color outside condition */
+    .chunky p:nth-of-type(1) {
+	color: pink; 
+    }
+
+    .chunky p:nth-of-type(2) {
+	color: transparent !important;
+    }
+
+    .texture {
+	background-repeat: no-repeat;
+	background-image: url('images/textmask.png');
+    }
 }
