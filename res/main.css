@@ -13,6 +13,7 @@ body {
     " ... soc ... "
     " ... crl ... "
     " ... vid ... "
+    " ... csh ... "
     " ... bus ... "
     " ... str ... "
     " ... lst ... "
@@ -201,6 +202,28 @@ header div:nth-of-type(1) {
     grid-area: vd;
     margin: auto;
     justify-self: start;
+}
+
+#donate {
+    grid-area: csh;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    " txt cde ";
+    align-items: center;
+}
+
+#donate div:nth-child(1) {
+    grid-area: txt;
+    justify-self: center;
+    text-align: left;
+}
+
+#donate div:nth-child(2) {
+    grid-area: cde;
+    justify-self: center;
 }
 
 #bus {
